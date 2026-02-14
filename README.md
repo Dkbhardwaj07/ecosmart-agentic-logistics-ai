@@ -16,6 +16,8 @@ and provides **Executive-level strategic advisory powered by Amazon Nova AI**.
 ---
 
 # 🚀 Live Demo
+youtube:
+https://www.youtube.com/watch?v=UUPozlAGAtA
 
 Frontend (Streamlit Cloud):
 https://ecosmart-ai.streamlit.app/
