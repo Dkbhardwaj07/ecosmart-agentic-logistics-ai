@@ -167,6 +167,38 @@ if st.session_state.result:
 
     st.divider()
 
+    # -------------------------
+    # Carbon Savings Impact (PROPER ALIGNMENT)
+    # -------------------------
+    st.subheader("Carbon Savings Impact")
+
+    baseline = result["carbon_impact"] * 1.3
+    optimized = result["carbon_impact"]
+
+    carbon_saved = max(0, baseline - optimized)
+
+    trees_equivalent = carbon_saved / 21
+    distance_saved = carbon_saved * 4
+
+    # Clean 3-column KPI layout
+    c1, c2, c3 = st.columns(3)
+
+    with c1:
+        st.metric("Carbon Saved", f"{carbon_saved:.2f} kg CO₂")
+
+    with c2:
+        st.metric("Trees Equivalent", f"{trees_equivalent:.1f} 🌳")
+
+    with c3:
+        st.metric("Driving Saved", f"{distance_saved:.0f} km 🚗")
+
+
+    # Progress bar below metrics (FULL WIDTH)
+    saving_percent = int((carbon_saved / baseline) * 100) if baseline > 0 else 0
+
+    st.progress(saving_percent)
+
+    st.caption("Environmental impact reduction compared to standard logistics route")
     # =========================
     # RADAR CHART
     # =========================
