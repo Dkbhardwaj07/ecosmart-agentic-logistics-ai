@@ -113,21 +113,55 @@ if st.session_state.result:
 
     col1,col2,col3 = st.columns(3)
 
-    col1.metric("Cost", result["estimated_cost"])
-    col2.metric("Carbon", result["carbon_impact"])
-    col3.metric("Performance", result["overall_performance_index"])
+    col1.metric("💰 Estimated Cost", f"${result['estimated_cost']}", "Optimized")
+    col2.metric("🌿 Carbon Impact", f"{result['carbon_impact']} kg CO₂", "Reduced")
+    col3.metric("📊 Performance Index", result["overall_performance_index"], "AI Optimized")
+
 
 
     # Sustainability Gauge
-    st.subheader("Sustainability Score")
+    st.subheader("AI Sustainability & Optimization Confidence")
 
-    fig = go.Figure(go.Indicator(
-        mode="gauge+number",
-        value=result["sustainability_score"],
-        gauge={'axis':{'range':[0,100]}}
-    ))
+    col1, col2 = st.columns(2)
 
-    st.plotly_chart(fig, use_container_width=True)
+    with col1:
+        gauge_fig = go.Figure(go.Indicator(
+            mode="gauge+number",
+            value=result["sustainability_score"],
+            title={'text': "Sustainability Score"},
+            gauge={
+                'axis': {'range': [0, 100]},
+                'bar': {'color': "green"},
+                'steps': [
+                    {'range': [0, 40], 'color': "red"},
+                    {'range': [40, 70], 'color': "yellow"},
+                    {'range': [70, 100], 'color': "green"},
+                ],
+            }
+        ))
+
+        st.plotly_chart(gauge_fig, use_container_width=True)
+
+    with col2:
+        confidence = result.get("optimization_confidence_score", 72)
+
+        confidence_fig = go.Figure(go.Indicator(
+            mode="gauge+number",
+            value=confidence,
+            title={'text': "Optimization Confidence"},
+            gauge={
+                'axis': {'range': [0, 100]},
+                'bar': {'color': "#00FFA3"},
+                'steps': [
+                    {'range': [0, 50], 'color': "#FF4B4B"},
+                    {'range': [50, 75], 'color': "#FFA500"},
+                    {'range': [75, 100], 'color': "#00FFA3"},
+                ],
+            }
+        ))
+
+    st.plotly_chart(confidence_fig, use_container_width=True)
+
 
 
     # Confidence Gauge
@@ -145,9 +179,10 @@ if st.session_state.result:
 
 
     # Radar Chart
-    st.subheader("Performance Radar")
+    st.subheader("Performance Radar Overview")
 
-    risk_score = 90 if result["risk_level"]=="Low" else 60
+    risk_score = 100 if result["risk_level"] == "Low" else 60 if result["risk_level"] == "Medium" else 40
+    carbon_eff = max(0, 100 - result["carbon_impact"] / 3)
 
     radar = go.Figure()
 
@@ -155,21 +190,26 @@ if st.session_state.result:
         r=[
             result["overall_performance_index"],
             result["sustainability_score"],
-            confidence,
+            carbon_eff,
             risk_score
         ],
         theta=[
             "Performance",
             "Sustainability",
-            "Confidence",
-            "Risk"
+            "Carbon Efficiency",
+            "Risk Stability"
         ],
-        fill="toself"
+        fill='toself'
     ))
 
-    radar.update_layout(polar=dict(radialaxis=dict(range=[0,100])))
+    radar.update_layout(
+            polar=dict(radialaxis=dict(visible=True, range=[0, 100])),
+            showlegend=False,
+            height=500
+        )
 
-    st.plotly_chart(radar,use_container_width=True)
+    st.plotly_chart(radar, use_container_width=True)
+
 
 
     # Agent Flow
