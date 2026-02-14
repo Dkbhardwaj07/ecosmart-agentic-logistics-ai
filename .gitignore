@@ -1,0 +1,6 @@
+nova_env/ 
+nova_test.py 
+__pycache__/
+*.pyc
+.env
+.DS_Store
