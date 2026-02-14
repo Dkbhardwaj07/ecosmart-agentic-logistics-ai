@@ -18,7 +18,7 @@ and provides **Executive-level strategic advisory powered by Amazon Nova AI**.
 # 🚀 Live Demo
 
 Frontend (Streamlit Cloud):
-https://ecosmart-agentic-logistics-ai.streamlit.app
+https://ecosmart-ai.streamlit.app/
 
 Backend API (Render):
 https://ecosmart-api.onrender.com
