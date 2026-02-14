@@ -1,246 +1,280 @@
 # 🌍 EcoSmart Agentic Logistics AI Platform
-### Powered by Amazon Nova (AWS Bedrock) | Multi-Agent Autonomous Decision Intelligence
+### Powered by Amazon Nova (AWS Bedrock) | Multi-Agent Autonomous Logistics Optimization
 
-EcoSmart Agentic Logistics AI is an enterprise-grade autonomous logistics optimization platform built using Amazon Nova foundation models on AWS Bedrock.
+EcoSmart is an enterprise-grade AI logistics optimization platform built using **Amazon Nova foundation models on AWS Bedrock** and a **multi-agent autonomous decision architecture**.
 
-The system uses a multi-agent AI architecture to optimize logistics routes by balancing operational cost, carbon emissions, sustainability impact, and execution risk.
+It optimizes logistics routes based on:
 
-Built for the Amazon Nova AI Hackathon 2026.
-
----
-
-# 🚀 Key Features
-
-### 🤖 Multi-Agent AI Architecture
-Specialized agents collaborate autonomously:
-
-• Route Optimization Agent  
-• Sustainability Intelligence Agent  
-• Carbon Impact Analysis Agent  
-• Risk Assessment Agent  
-• Simulation & Scenario Analysis Agent  
-• Executive Advisory Agent (Powered by Amazon Nova)  
-• Autonomous Decision Engine  
-
----
-
-### 🌱 Sustainability Intelligence Engine
-Analyzes:
-
-• Carbon emissions  
+• Cost efficiency  
+• Carbon impact  
 • Sustainability score  
-• Environmental efficiency  
-• Carbon savings potential  
+• Risk level  
+• Autonomous execution readiness  
 
-Provides eco-optimized logistics recommendations.
-
----
-
-### 🧠 Amazon Nova Executive Advisory Layer
-Uses Amazon Nova foundation model via AWS Bedrock to generate:
-
-• Executive-level logistics advisory  
-• Strategic sustainability recommendations  
-• Risk-aware deployment decisions  
-• Autonomous execution guidance  
+and provides **Executive-level strategic advisory powered by Amazon Nova AI**.
 
 ---
 
-### ⚡ Autonomous AI Decision Engine
-Calculates:
+# 🚀 Live Demo
 
-• Performance Index  
-• Autonomous Execution Score  
-• Decision classification:
+Frontend (Streamlit Cloud):
+https://ecosmart-agentic-logistics-ai.streamlit.app
 
-- Fully Autonomous Execution
-- Semi-Autonomous Execution
-- Executive Approval Required
-
----
-
-### 📊 Interactive AI Dashboard
-Streamlit-based dashboard provides:
-
-• Real-time route optimization  
-• Sustainability score visualization  
-• Carbon savings analysis  
-• Multi-agent decision flow visualization  
-• Autonomous execution monitoring  
-• Live AI agent status monitoring  
-
----
-
-### 🗺️ Live Route Visualization
-Displays:
-
-• Source and destination mapping  
-• Route visualization  
-• Real-time logistics decision context  
-
----
-
-# 🏗️ System Architecture
-
-Frontend:
-Streamlit Dashboard
-
-Backend:
-FastAPI Autonomous Multi-Agent System
-
-AI Model:
-Amazon Nova (AWS Bedrock)
-
-Cloud Platform:
-AWS + Streamlit Cloud
+Backend API (Render):
+https://ecosmart-api.onrender.com
 
 ---
 
 # 🧠 Amazon Nova Integration
 
-Amazon Nova foundation model is used for:
+This project uses:
 
-• Executive AI advisory generation  
+Amazon Nova model:
+us.amazon.nova-2-lite-v1:0
+
+
+via AWS Bedrock for:
+
+• Executive AI Advisory  
 • Strategic logistics reasoning  
-• Autonomous sustainability-aware decision support  
-
-Service used:
-
-AWS Bedrock Runtime  
-Model: Nova 2 Lite  
+• Sustainability decision intelligence  
+• Autonomous decision explanation  
 
 ---
 
-# 📂 Project Structure
+# 🏗 Architecture Overview
 
-ecosmart-agentic-logistics-ai/
-│
-├── app/
-│ ├── agents/
-│ │ ├── route_agent.py
-│ │ ├── sustainability_agent.py
-│ │ ├── carbon_agent.py
-│ │ ├── risk_agent.py
-│ │ ├── simulation_agent.py
-│ │ ├── performance_agent.py
-│ │ └── orchestrator.py
-│ │
-│ ├── services/
-│ │ ├── executive_ai_service.py
-│ │ ├── autonomous_decision_engine.py
-│ │ └── nova_ai_service.py
-│ │
-│ └── main.py
-│
-├── dashboard.py
-├── requirements.txt
-├── README.md
-└── .streamlit/config.toml
+Multi-Agent System:
+
+Input Agent
+↓
+Route Optimization Agent
+↓
+Sustainability Agent
+↓
+Risk Analysis Agent
+↓
+Simulation Agent
+↓
+Executive AI Agent (Amazon Nova)
+↓
+Autonomous Decision Engine
 
 
 ---
 
-# ⚙️ Installation
+# ✨ Key Features
 
-Clone repository:
+### Autonomous AI Logistics Optimization
+• Multi-agent orchestration  
+• Real-time sustainability scoring  
+• Carbon impact analysis  
 
-git clone https://github.com/Dkbhardwaj07/ecosmart-agentic-logistics-ai
+### Executive AI Advisory (Amazon Nova)
+• Strategic executive recommendation  
+• Sustainability assessment  
+• Risk evaluation  
+• Enterprise deployment guidance  
+
+### Autonomous Decision Engine
+Provides:
+
+• Fully Autonomous Execution  
+• Semi-Autonomous Execution  
+• Manual Approval Required  
+
+---
+
+# 📊 Dashboard Features
+
+• Sustainability Gauge  
+• AI Confidence Meter  
+• Carbon Savings Impact  
+• Performance Radar Overview  
+• Live Route Map Visualization  
+• Multi-Agent Decision Flow  
+• Executive AI Advisory Panel  
+
+---
+
+# 🧰 Tech Stack
+
+Frontend:
+• Streamlit  
+• Plotly  
+• Folium  
+
+Backend:
+• FastAPI  
+• Python  
+
+AI:
+• Amazon Nova (AWS Bedrock)
+
+Deployment:
+• Streamlit Cloud (Frontend)
+• Render (Backend API)
+
+Cloud:
+• AWS Bedrock  
+• AWS IAM  
+
+---
+
+# ⚙️ Local Installation
+
+Clone repo:
+
+```bash
+git clone https://github.com/Dkbhardwaj07/ecosmart-agentic-logistics-ai.git
+cd ecosmart-agentic-logistics-ai
 
 Install dependencies:
 pip install -r requirements.txt
 
-
 Run backend:
 uvicorn app.main:app --reload
 
-Run dashboard:
+Run frontend:
 streamlit run dashboard.py
 
----
 
-# 🧪 Example API Request
+☁️ Deployment Guide
+Backend Deployment (Render)
 
-POST /optimize-route
-{
-"source": "Mumbai",
-"destination": "Delhi",
-"cargo_weight": 120,
-"priority": "High"
-}
+Create Web Service on Render
 
+Settings:
 
-Example Response:
+Build Command:
+pip install -r requirements.txt
 
-{
-"optimized_route": "Mumbai → Delhi",
-"estimated_cost": 330,
-"carbon_impact": 105.6,
-"sustainability_score": 42,
-"overall_performance_index": 60,
-"optimization_confidence_score": 67
-}
+Start Command:
+uvicorn app.main:app --host 0.0.0.0 --port $PORT
+
+Your backend URL will be:
+https://ecosmart-api.onrender.com
 
 
----
+Frontend Deployment (Streamlit Cloud)
 
-# 📊 AI Output Includes
+Deploy using:
 
-• Optimized logistics route  
-• Sustainability score  
-• Carbon emission impact  
-• Performance index  
-• Alternative route simulation  
-• Autonomous execution decision  
-• Executive AI advisory  
+Main file:
+dashboard.py
 
----
+Repository:
+ecosmart-agentic-logistics-ai
 
-# 🎥 Demo Video
+🔐 AWS Setup Required
 
-(To be added)
+Configure AWS credentials:
 
----
+aws configure
 
-# 🌍 Live Demo
 
-(To be added after deployment)
+Required permissions:
 
----
+Bedrock InvokeModel
 
-# 🏆 Hackathon Submission Details
 
-Hackathon:
+Region:
+
+us-east-1
+
+🧪 API Endpoints
+
+Optimize Route
+
+POST
+
+/optimize-route
+
+
+Executive Advisory (Amazon Nova)
+
+POST
+
+/executive-advisory
+
+
+Autonomous Decision
+
+POST
+
+/autonomous-decision
+
+
+Agent Status
+
+GET
+
+/agent-status
+
+📁 Project Structure
+ecosmart-agentic-logistics-ai/
+│
+├── app/
+│   ├── agents/
+│   ├── services/
+│   ├── main.py
+│
+├── dashboard.py
+├── requirements.txt
+├── README.md
+
+🧠 Amazon Nova Usage
+
+Amazon Nova provides:
+
+• Executive-level AI reasoning
+• Strategic sustainability advisory
+• Autonomous logistics intelligence
+
+Model Used:
+
+Amazon Nova 2 Lite
+
+
+via AWS Bedrock Runtime API
+
+🏆 Hackathon Submission
+
 Amazon Nova AI Hackathon 2026
 
 Category:
-Agentic AI
 
-Core Requirement Met:
-Uses Amazon Nova foundation model via AWS Bedrock.
+Agentic AI System
 
----
+Project demonstrates:
 
-# 🌟 Innovation Highlights
+• Real-world enterprise logistics AI
+• Autonomous AI decision engine
+• Amazon Nova reasoning integration
 
-• Real-world enterprise logistics use case  
-• Multi-agent autonomous AI architecture  
-• Sustainability-aware optimization  
-• Executive-level AI decision intelligence  
-• Amazon Nova integration  
+👨‍💻 Author
 
----
+Durgesh Bhardwaj
 
-# 👨‍💻 Developer
-
-Durgesh Bhardwaj  
-Software Engineer  
+Software Engineer
+AI / Backend / Autonomous Systems
 
 GitHub:
 https://github.com/Dkbhardwaj07
 
----
-
-# 📜 License
+📜 License
 
 MIT License
+
+🌱 Future Enhancements
+
+• Real-time GPS logistics tracking
+• Live fleet optimization
+• Reinforcement learning route optimization
+• Multimodal Nova integration
+
+⭐ Powered by Amazon Nova
+
+Enterprise-grade autonomous logistics intelligence built using Amazon Nova foundation models.
+
 
